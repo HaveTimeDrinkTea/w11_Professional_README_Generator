@@ -35,13 +35,44 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const questionsArr = [
    {
       type: 'input',
-      message: 'What is your name?',
-      name: 'userName',
+      message: 'What is the name of your super duper project?',
+      name: 'projName',
    }, 
    {
-      type: 'input',
-      message: 'What is your gender?',
-      name: 'userGender',
+      type: 'editor',
+      message: 'Write a short description explaining the what, why, and how of your project.',
+      name: 'projDesc',
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Must be at least 2 lines.';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'editor',
+      message: 'Provide a step-by-step description of how to get the development environment running:',
+      name: 'projInstall',
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Must be at least 2 lines.';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'editor',
+      message: 'Provide instructions and examples for use. Include screenshots as needed.',
+      name: 'projUsage',
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Must be at least 2 lines.';
+         }
+         return true;
+      },
+      waitUserInput: true,
    }, 
 ];
 
@@ -71,7 +102,7 @@ const init = async () => {
       
       await writeFileAsync('./output/README1.md', readMeFile);
       
-      console.log('Successfully wrote to readme3.md');
+      console.log('Successfully wrote to readme1.md');
    } catch (err) {
       console.log(err);
    }
