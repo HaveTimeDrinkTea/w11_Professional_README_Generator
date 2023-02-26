@@ -10,7 +10,11 @@ import * as fs from 'fs';
 // get path
 import * as path from 'path';
 
+// get inquirer
+
 import inquirer from 'inquirer';
+
+// get util 
 
 import * as util from 'util';
 
@@ -18,35 +22,22 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 const readFileAsync = util.promisify(fs.readFile);
 
+// get generateMarkdown code and the license list
+
 import generateMarkdown from './utils/generateMarkdown.js';
 
 import { licenseArr } from './utils/license.js'; 
 
-// import { readFile } from 'node:fs';
+// get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
 const fileNum = await readFileAsync('./utils/fileNumCounter.log', 'utf8');
-
-
-
-// let fileNum;
-//       fs.readFile('./utils/fileNumCounter.log', 'utf8', function (err, data) {
-//          if (err) {
-//             fileNum = 1;
-//          }
-//          console.log("data:",data);
-//          console.log(typeof data);
-//          fileNum = data;
-//          console.log("fileNum:",fileNum );
-//       });
-
-
 
 let fileName = `README` + fileNum + `.md`;
 console.log("fileName:",fileName);
 
 
+// set array of questions objects for user
 
-// array of questions for user
 const questionsArr = [
    {
       type: 'input',
