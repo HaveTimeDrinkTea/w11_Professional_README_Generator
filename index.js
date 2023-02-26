@@ -35,6 +35,13 @@ const fileNum = await readFileAsync('./utils/fileNumCounter.log', 'utf8');
 let fileName = `README` + fileNum + `.md`;
 console.log("fileName:",fileName);
 
+// Set welcome messages
+
+let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
+   + `                 GOOD DAY GOOD DAY! \n`
+   + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README.md! \n \n`
+   + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
+
 
 // set array of questions objects for the user to be used by inquirer
 
@@ -56,6 +63,11 @@ const questionsArr = [
    //    },
    //    waitUserInput: true,
    // }, 
+   {
+      type: 'input',
+      message: 'What is the URL of your deployed project (enter full path including https://)?',
+      name: 'projDeployURL',
+   }, 
    // {
    //    type: 'editor',
    //    message: 'Provide a step-by-step description of how to get the development environment running:',
@@ -89,19 +101,19 @@ const questionsArr = [
       type: 'list',
       name: 'projScreenDumpNum',
       message: "How many more screen dumps would you like to include?",
-      choices: ["2", "3"],
+      choices: ["Two more", "Three more", "No more, dear!"],
    }, 
    {
       type: 'input',
       message: 'and the path/filename of your second screen dump:',
       name: 'projScreenDump2',
-      when: (answers) => ((answers.projScreenDumpNum === "2") || (answers.projScreenDumpNum === "3")),
+      when: (answers) => ((answers.projScreenDumpNum === "Two more") || (answers.projScreenDumpNum === "Three more")),
    }, 
    {
       type: 'input',
       message: '... and the third screen dump?',
       name: 'projScreenDump3',
-      when: (answers) => answers.projScreenDumpNum === "3",
+      when: (answers) => answers.projScreenDumpNum === "Three more",
    }, 
    // {
    //    type: 'editor',
@@ -125,6 +137,18 @@ const questionsArr = [
    //    type: 'editor',
    //    message: 'List all the fabulous features of your project: ',
    //    name: 'projFeatures',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // }, 
+   // {
+   //    type: 'editor',
+   //    message: '... and any other future developments for your project: ',
+   //    name: 'projFuture',
    //    validate(text) {
    //       if (text.split('\n').length < 2) {
    //          return 'Must be at least 2 lines.';
@@ -170,7 +194,7 @@ const promptUser = () => {
 
 
 const init = async () => {
-   console.log(`Good Day Good Day! Let's get WERKING and write a Super Duper README.md!`);
+   console.log(welcomeMsg);
    try {
 
       // call inquirer.js
