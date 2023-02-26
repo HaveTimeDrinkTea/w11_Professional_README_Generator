@@ -23,9 +23,51 @@ import { licenseArr } from './utils/license.js';
 
 // import file num counter
 
-let fileNum = fs.readFile('./utils/fileNumCounter.js');
+// import * as locStorage from 'node-persist';
 
-let fileName = `README` + fileNum + `.md`;
+import ls from 'local-storage';
+
+let test1 = ls.get('foo');
+console.log("test1:", test1);
+
+ls('foo', 'bar');
+// <- true
+let test2 = ls.get('foo');
+// <- 'bar'
+
+console.log("test2:", test2);
+
+let fileNumStored = ls.get('fileNumStored');
+
+console.log("fileNumStored from LS:", fileNumStored);
+
+if (fileNumStored === null) {
+   fileNumStored = 1;
+   console.log("fileNumStored in true:", fileNumStored);
+} else {
+   fileNumStored = parseInt(fileNumStored) + 1;
+   console.log("fileNumStored in else:", fileNumStored);
+};
+
+ls.set('fileNumStored', fileNumStored);
+
+let fileName = `README` + fileNumStored + `.md`;
+
+console.log("fileName before questions:", fileName);
+
+
+// await locStorage.init();
+// let fileNumStored = await locStorage.getItem('fileNum'); 
+
+// if (fileNumStored === undefined) {
+//    fileNumStored = 1;
+//    await storage.setItem('fileNum', parseInt(fileNumStored));
+// };
+// console.log("here:", await locStorage.getItem('fileNum')); 
+
+// let fileNum = fs.readFile('./utils/fileNumCounter.js');
+
+// let fileName = `README` + fileNum + `.md`;
 
 // console.log(licenseArr);
 
@@ -174,9 +216,7 @@ const init = async () => {
       
       await writeFileAsync(`./output/`+ fileName, readMeFile);
       
-      console.log('Successfully wrote to readme1.md');
-
-      await writeFileAsync(`./utils/fileNumCounter.js`, parseInt(fileNum) + 1);
+      console.log("Successfully wrote to " + fileName);
 
    } catch (err) {
       console.log(err);
