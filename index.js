@@ -17,7 +17,19 @@ import * as path from 'path';
 
 import generateMarkdown from './utils/generateMarkdown.js';
 
-console.log("What is generateMarkdown:", generateMarkdown);
+// import licenseArr from './utils/license.js';
+
+import { licenseArr } from './utils/license.js'; 
+
+// import file num counter
+
+let fileNum = fs.readFile('./utils/fileNumCounter.js');
+
+let fileName = `README` + fileNum + `.md`;
+
+// console.log(licenseArr);
+
+// console.log("What is generateMarkdown:", generateMarkdown);
 
 import inquirer from 'inquirer';
 
@@ -35,17 +47,108 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const questionsArr = [
    {
       type: 'input',
-      message: 'What is your name?',
-      name: 'userName',
+      message: 'What is the name of your super duper project?',
+      name: 'projName',
    }, 
+   // {
+   //    type: 'editor',
+   //    message: 'Write a short description explaining the what, why, and how of your project.',
+   //    name: 'projDesc',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // }, 
+   // {
+   //    type: 'editor',
+   //    message: 'Provide a step-by-step description of how to get the development environment running:',
+   //    name: 'projInstall',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // }, 
+   // {
+   //    type: 'editor',
+   //    message: 'Provide instructions and examples for use. Path for  screenshots to be provided in next prompt.',
+   //    name: 'projUsage',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // }, 
+   // {
+   //    type: 'input',
+   //    message: 'What is the path and file name of the screen dump of your project?',
+   //    name: 'projScreenDump',
+   // }, 
+   // {
+   //    type: 'editor',
+   //    message: 'List your collaborators, any third-party assets requiring attribution.',
+   //    name: 'projCredits',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // }, 
    {
-      type: 'input',
-      message: 'What is your gender?',
-      name: 'userGender',
-   }, 
+      type: 'list',
+      message: 'Choose a suitable license for your project:',
+      name: 'projLicense',
+      choices: licenseArr,
+   },
+   // {
+   //    type: 'editor',
+   //    message: 'List all the fabulous features of your project: ',
+   //    name: 'projFeatures',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // }, 
+   // {
+   //    type: 'editor',
+   //    message: 'If you would like other developers to contribute to it, you can include guidelines for how to do so: ',
+   //    name: 'projContribute',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // }, 
+   // {
+   //    type: 'editor',
+   //    message: 'Device testings for your application and provide examples on how to run them:',
+   //    name: 'projTests',
+   //    validate(text) {
+   //       if (text.split('\n').length < 2) {
+   //          return 'Must be at least 2 lines.';
+   //       }
+   //       return true;
+   //    },
+   //    waitUserInput: true,
+   // },    
 ];
 
-console.log("questionsArr:", questionsArr);
+
+// console.log("questionsArr:", questionsArr);
 
 const promptUser = () => {
    return inquirer.prompt(questionsArr)
@@ -69,9 +172,12 @@ const init = async () => {
       
       const readMeFile = generateMarkdown(userResponses);
       
-      await writeFileAsync('./output/README1.md', readMeFile);
+      await writeFileAsync(`./output/`+ fileName, readMeFile);
       
-      console.log('Successfully wrote to readme3.md');
+      console.log('Successfully wrote to readme1.md');
+
+      await writeFileAsync(`./utils/fileNumCounter.js`, parseInt(fileNum) + 1);
+
    } catch (err) {
       console.log(err);
    }
