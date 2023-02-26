@@ -181,13 +181,13 @@ const init = async () => {
       
       // generate the markdown file
       const readMeFile = generateMarkdown(userResponses);
-      await writeFileAsync(`./output/`+ fileName, readMeFile);
-      console.log("Your fabulous " + fileName + " is done! Go to /util/output directory to collect it!");
+      await writeFileAsync(`./readmes/`+ fileName, readMeFile);
+      console.log("Your fabulous " + fileName + " is done! Go to /readmes directory to collect it!");
 
       // set next file version number.
       let fileNumNext = (parseInt(fileNum)+1).toString();
       await writeFileAsync(`./utils/fileNumCounter.log`, fileNumNext);
-      console.log(`Successfully added the next file number `, fileNumNext, `to log file.`);
+      console.log(`Successfully added the next file number`, fileNumNext, `to log file.`);
 
    } catch (err) {
       console.log(err);
