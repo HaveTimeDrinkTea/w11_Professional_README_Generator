@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator#readme",
   "dependencies": {
-    "inquirer": "^9.1.4"
+    "inquirer": "^9.1.4",
+    "local-storage": "^2.0.0",
+    "node-persist": "^3.1.3"
   }
 }

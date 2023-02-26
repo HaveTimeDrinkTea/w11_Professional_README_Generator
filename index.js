@@ -1,8 +1,3 @@
-// const fs = require("fs");
-// const path = require('path');
-// const inquirer = require("inquirer");
-
-
 //-- initialized  repository with a `package.json` file by running `npm init -y`.
 //-- installed inquirer and added it to list of dependencies by running `npm i inquirer --save`.
 //--PW Inquirer v9 and higher are native esm modules, this mean you cannot use the commonjs syntax require('inquirer') anymore. 
@@ -15,31 +10,39 @@ import * as fs from 'fs';
 // get path
 import * as path from 'path';
 
-import generateMarkdown from './utils/generateMarkdown.js';
-
-// import licenseArr from './utils/license.js';
-
-import { licenseArr } from './utils/license.js'; 
-
-// import file num counter
-
-let fileNum = fs.readFile('./utils/fileNumCounter.js');
-
-let fileName = `README` + fileNum + `.md`;
-
-// console.log(licenseArr);
-
-// console.log("What is generateMarkdown:", generateMarkdown);
-
 import inquirer from 'inquirer';
-
-// const generateMarkdown = require("./utils/generateMarkdown");
-
-// const util = require('util');
 
 import * as util from 'util';
 
 const writeFileAsync = util.promisify(fs.writeFile);
+
+const readFileAsync = util.promisify(fs.readFile);
+
+import generateMarkdown from './utils/generateMarkdown.js';
+
+import { licenseArr } from './utils/license.js'; 
+
+// import { readFile } from 'node:fs';
+
+const fileNum = await readFileAsync('./utils/fileNumCounter.log', 'utf8');
+
+
+
+// let fileNum;
+//       fs.readFile('./utils/fileNumCounter.log', 'utf8', function (err, data) {
+//          if (err) {
+//             fileNum = 1;
+//          }
+//          console.log("data:",data);
+//          console.log(typeof data);
+//          fileNum = data;
+//          console.log("fileNum:",fileNum );
+//       });
+
+
+
+let fileName = `README` + fileNum + `.md`;
+console.log("fileName:",fileName);
 
 
 
@@ -174,9 +177,14 @@ const init = async () => {
       
       await writeFileAsync(`./output/`+ fileName, readMeFile);
       
-      console.log('Successfully wrote to readme1.md');
+      console.log("Successfully wrote to " + fileName);
 
-      await writeFileAsync(`./utils/fileNumCounter.js`, parseInt(fileNum) + 1);
+      let fileNumNext = (parseInt(fileNum)+1).toString();
+
+      await writeFileAsync(`./utils/fileNumCounter.log`, fileNumNext);
+
+      console.log(`Successfully wrote `, fileNumNext, `to log file.`);
+
 
    } catch (err) {
       console.log(err);
