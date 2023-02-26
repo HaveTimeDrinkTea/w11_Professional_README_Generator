@@ -22,7 +22,7 @@ for (const key in licenseTypesObj) {
       licenseArr.unshift(key);
 };
 
-// export default licenseArr;
+// export default licenseArr for the inquirer prompt and the licenseTypesObj to be used by generateMarkdown()
 
 export { licenseArr, licenseTypesObj };
 

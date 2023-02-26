@@ -10,7 +10,11 @@ import * as fs from 'fs';
 // get path
 import * as path from 'path';
 
+// get inquirer
+
 import inquirer from 'inquirer';
+
+// get util 
 
 import * as util from 'util';
 
@@ -18,35 +22,22 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 const readFileAsync = util.promisify(fs.readFile);
 
+// get generateMarkdown code and the license list
+
 import generateMarkdown from './utils/generateMarkdown.js';
 
 import { licenseArr } from './utils/license.js'; 
 
-// import { readFile } from 'node:fs';
+// get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
 const fileNum = await readFileAsync('./utils/fileNumCounter.log', 'utf8');
-
-
-
-// let fileNum;
-//       fs.readFile('./utils/fileNumCounter.log', 'utf8', function (err, data) {
-//          if (err) {
-//             fileNum = 1;
-//          }
-//          console.log("data:",data);
-//          console.log(typeof data);
-//          fileNum = data;
-//          console.log("fileNum:",fileNum );
-//       });
-
-
 
 let fileName = `README` + fileNum + `.md`;
 console.log("fileName:",fileName);
 
 
+// set array of questions objects for the user to be used by inquirer
 
-// array of questions for user
 const questionsArr = [
    {
       type: 'input',
@@ -79,7 +70,7 @@ const questionsArr = [
    // }, 
    // {
    //    type: 'editor',
-   //    message: 'Provide instructions and examples for use. Path for  screenshots to be provided in next prompt.',
+   //    message: 'Provide instructions and examples for use. Path of screenshots to be provided in next prompt.',
    //    name: 'projUsage',
    //    validate(text) {
    //       if (text.split('\n').length < 2) {
@@ -89,11 +80,29 @@ const questionsArr = [
    //    },
    //    waitUserInput: true,
    // }, 
-   // {
-   //    type: 'input',
-   //    message: 'What is the path and file name of the screen dump of your project?',
-   //    name: 'projScreenDump',
-   // }, 
+   {
+      type: 'input',
+      message: 'What is the path and file name of your first screen dump of your project?',
+      name: 'projScreenDump1',
+   }, 
+   {
+      type: 'list',
+      name: 'projScreenDumpNum',
+      message: "How many more screen dumps would you like to include?",
+      choices: ["2", "3"],
+   }, 
+   {
+      type: 'input',
+      message: 'and the path/filename of your second screen dump:',
+      name: 'projScreenDump2',
+      when: (answers) => ((answers.projScreenDumpNum === "2") || (answers.projScreenDumpNum === "3")),
+   }, 
+   {
+      type: 'input',
+      message: '... and the third screen dump?',
+      name: 'projScreenDump3',
+      when: (answers) => answers.projScreenDumpNum === "3",
+   }, 
    // {
    //    type: 'editor',
    //    message: 'List your collaborators, any third-party assets requiring attribution.',
@@ -153,44 +162,39 @@ const questionsArr = [
 
 // console.log("questionsArr:", questionsArr);
 
+// asynchronously call inquirer.js and write to the file and increment file number for the next run.
+
 const promptUser = () => {
    return inquirer.prompt(questionsArr)
 };
 
-// const generateMarkdown= (userResponses) =>
-//    `# blah blah
-//    and second lien
-//    and third line
-//    bye! My name is ${userResponses.userName}`
 
-
-// Bonus using async/await and try/catch
 const init = async () => {
-   console.log('hi');
+   console.log(`Good Day Good Day! Let's get WERKING and write a Super Duper README.md!`);
    try {
-      const userResponses = await promptUser();
-      console.log("inside ini:", generateMarkdown);
 
+      // call inquirer.js
+      const userResponses = await promptUser();
+      
+      console.log("inside ini:", generateMarkdown);
       console.log("userResponses",userResponses);
       
+      // generate the markdown file
       const readMeFile = generateMarkdown(userResponses);
-      
-      await writeFileAsync(`./output/`+ fileName, readMeFile);
-      
-      console.log("Successfully wrote to " + fileName);
+      await writeFileAsync(`./readmes/`+ fileName, readMeFile);
+      console.log("Your fabulous " + fileName + " is done! Go to /readmes directory to collect it!");
 
+      // set next file version number.
       let fileNumNext = (parseInt(fileNum)+1).toString();
-
       await writeFileAsync(`./utils/fileNumCounter.log`, fileNumNext);
-
-      console.log(`Successfully wrote `, fileNumNext, `to log file.`);
-
+      console.log(`Successfully added the next file number`, fileNumNext, `to log file.`);
 
    } catch (err) {
       console.log(err);
    }
 };
 
+// run the script on load node
 init();
 
 
