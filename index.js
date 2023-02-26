@@ -1,8 +1,3 @@
-// const fs = require("fs");
-// const path = require('path');
-// const inquirer = require("inquirer");
-
-
 //-- initialized  repository with a `package.json` file by running `npm init -y`.
 //-- installed inquirer and added it to list of dependencies by running `npm i inquirer --save`.
 //--PW Inquirer v9 and higher are native esm modules, this mean you cannot use the commonjs syntax require('inquirer') anymore. 
@@ -15,73 +10,39 @@ import * as fs from 'fs';
 // get path
 import * as path from 'path';
 
-import generateMarkdown from './utils/generateMarkdown.js';
-
-// import licenseArr from './utils/license.js';
-
-import { licenseArr } from './utils/license.js'; 
-
-// import file num counter
-
-// import * as locStorage from 'node-persist';
-
-import ls from 'local-storage';
-
-let test1 = ls.get('foo');
-console.log("test1:", test1);
-
-ls('foo', 'bar');
-// <- true
-let test2 = ls.get('foo');
-// <- 'bar'
-
-console.log("test2:", test2);
-
-let fileNumStored = ls.get('fileNumStored');
-
-console.log("fileNumStored from LS:", fileNumStored);
-
-if (fileNumStored === null) {
-   fileNumStored = 1;
-   console.log("fileNumStored in true:", fileNumStored);
-} else {
-   fileNumStored = parseInt(fileNumStored) + 1;
-   console.log("fileNumStored in else:", fileNumStored);
-};
-
-ls.set('fileNumStored', fileNumStored);
-
-let fileName = `README` + fileNumStored + `.md`;
-
-console.log("fileName before questions:", fileName);
-
-
-// await locStorage.init();
-// let fileNumStored = await locStorage.getItem('fileNum'); 
-
-// if (fileNumStored === undefined) {
-//    fileNumStored = 1;
-//    await storage.setItem('fileNum', parseInt(fileNumStored));
-// };
-// console.log("here:", await locStorage.getItem('fileNum')); 
-
-// let fileNum = fs.readFile('./utils/fileNumCounter.js');
-
-// let fileName = `README` + fileNum + `.md`;
-
-// console.log(licenseArr);
-
-// console.log("What is generateMarkdown:", generateMarkdown);
-
 import inquirer from 'inquirer';
-
-// const generateMarkdown = require("./utils/generateMarkdown");
-
-// const util = require('util');
 
 import * as util from 'util';
 
 const writeFileAsync = util.promisify(fs.writeFile);
+
+const readFileAsync = util.promisify(fs.readFile);
+
+import generateMarkdown from './utils/generateMarkdown.js';
+
+import { licenseArr } from './utils/license.js'; 
+
+// import { readFile } from 'node:fs';
+
+const fileNum = await readFileAsync('./utils/fileNumCounter.log', 'utf8');
+
+
+
+// let fileNum;
+//       fs.readFile('./utils/fileNumCounter.log', 'utf8', function (err, data) {
+//          if (err) {
+//             fileNum = 1;
+//          }
+//          console.log("data:",data);
+//          console.log(typeof data);
+//          fileNum = data;
+//          console.log("fileNum:",fileNum );
+//       });
+
+
+
+let fileName = `README` + fileNum + `.md`;
+console.log("fileName:",fileName);
 
 
 
@@ -217,6 +178,13 @@ const init = async () => {
       await writeFileAsync(`./output/`+ fileName, readMeFile);
       
       console.log("Successfully wrote to " + fileName);
+
+      let fileNumNext = (parseInt(fileNum)+1).toString();
+
+      await writeFileAsync(`./utils/fileNumCounter.log`, fileNumNext);
+
+      console.log(`Successfully wrote `, fileNumNext, `to log file.`);
+
 
    } catch (err) {
       console.log(err);
