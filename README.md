@@ -132,7 +132,7 @@ MIT License
 * The following user input validation will apply:
     * When the user chooses no more screen dump, then the user will be see the prompt for the second and third screen dump.
     * email address
-    * path directory for screen dumps
+    * for Credits to collaborators, project future directions, future contributions by other developers and testing sections, if the user chooses not to add any sections, the text "N.A." is added to the respective sections.
 * When the full list of prompts have been completed, the user is shown 
   * a congratulatory success message,
   * the name of the README<version number>.md
