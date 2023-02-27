@@ -30,7 +30,7 @@ import { licenseArr } from './utils/license.js';
 
 // get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
-const fileNum = await readFileAsync('./utils/fileNumCounter.log', 'utf8');
+const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
 
 let fileName = `README` + fileNum + `.md`;
 console.log("fileName:",fileName);
@@ -38,153 +38,220 @@ console.log("fileName:",fileName);
 // Set welcome messages
 
 let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
-   + `                 GOOD DAY GOOD DAY! \n`
+   + `                 👯‍♂️🕺🏻👯‍♀️ GOOD DAY GOOD DAY! 👯‍♀️🕺🏻👯‍♂️\n`
    + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README.md! \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
 
+let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
+   + `                🏅  ConDRAGtulations! 🏅 \n`
+   + `                 I am impressed, my dear!  \n`
+   + ` You have successfully created a very dashing ` + fileName + `! \n`
+   + `               Now, you can SHASHAY away! \n \n`
+   + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`   
 
 // set array of questions objects for the user to be used by inquirer
 
 const questionsArr = [
    {
       type: 'input',
-      message: 'What is the name of your super duper project?',
+      message: 'Now, first things first: the name of your super duper project is?',
       name: 'projName',
+      validate(text) {
+         if (text === "" ) {
+            return 'Oh dear! Blankety blank is not a good name! Please tell me the real project name!';
+         }
+         return true;
+      },
+      waitUserInput: true,
    }, 
-   // {
-   //    type: 'editor',
-   //    message: 'Write a short description explaining the what, why, and how of your project.',
-   //    name: 'projDesc',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // }, 
+   {
+      type: 'editor',
+      message: 'And now tell me a bit about your project, what motivates you to do this, why are you doing it and how did you do it:',
+      name: 'projDesc',
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'My dear! You need to type in at least 2 lines of description!';
+         }
+         return true;
+      },
+   },   
    {
       type: 'input',
-      message: 'What is the URL of your deployed project (enter full path including https://)?',
+      message: ' and the URL of your deployed project (type full path including https://)?',
       name: 'projDeployURL',
+      validate(text) {
+         if (text === "" ) {
+            return 'My dear! Pray tell your project deployment path!';
+         }
+         return true;
+      },
+      waitUserInput: true,
    }, 
-   // {
-   //    type: 'editor',
-   //    message: 'Provide a step-by-step description of how to get the development environment running:',
-   //    name: 'projInstall',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // }, 
-   // {
-   //    type: 'editor',
-   //    message: 'Provide instructions and examples for use. Path of screenshots to be provided in next prompt.',
-   //    name: 'projUsage',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // }, 
+   {
+      type: 'editor',
+      message: 'That is fabulous! Now my dear, give me a step-by-step run through on getting the application environment running:',
+      name: 'projInstall',
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'My dear! Surely your fabulous app has more than 2 steps to get it running! ';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'editor',
+      message: 'And are there any instructions or examples for use. (Path of screenshot(s) to be provided in next prompt.)',
+      name: 'projUsage',
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'My dear! Surely you can do 2 lines of instructions!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
    {
       type: 'input',
-      message: 'What is the path and file name of your first screen dump of your project?',
+      message: 'So my dear, what is the path and file name of the screen dump of your project?',
       name: 'projScreenDump1',
+      validate(text) {
+         if (text === "" ) {
+            return 'My dear! If you do not tell me the path to your file, how am I going to find it?';
+         }
+         return true;
+      },
+      waitUserInput: true,
    }, 
    {
       type: 'list',
       name: 'projScreenDumpNum',
       message: "How many more screen dumps would you like to include?",
-      choices: ["Two more", "Three more", "No more, dear!"],
+      choices: ["One more, please!", "Two more, please!", "No more, dear!"],
    }, 
    {
       type: 'input',
-      message: 'and the path/filename of your second screen dump:',
+      message: '... and the path/filename of your second screen dump is:',
       name: 'projScreenDump2',
-      when: (answers) => ((answers.projScreenDumpNum === "Two more") || (answers.projScreenDumpNum === "Three more")),
+      when: (answers) => ((answers.projScreenDumpNum === "One more, please!") || (answers.projScreenDumpNum === "Two more, please!")),
+      validate(text) {
+         if (text === "" ) {
+            return 'My dear! If you do not tell me the path to your file, how am I going to find it!';
+         }
+         return true;
+      },
+      waitUserInput: true,
    }, 
    {
       type: 'input',
       message: '... and the third screen dump?',
       name: 'projScreenDump3',
-      when: (answers) => answers.projScreenDumpNum === "Three more",
+      when: (answers) => answers.projScreenDumpNum === "Two more, please!",
+      validate(text) {
+         if (text === "" ) {
+            return 'My dear! If you do not tell me the path to your file, how am I going to find it?';
+         }
+         return true;
+      },
+      waitUserInput: true,
    }, 
-   // {
-   //    type: 'editor',
-   //    message: 'List your collaborators, any third-party assets requiring attribution.',
-   //    name: 'projCredits',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // }, 
    {
       type: 'list',
-      message: 'Choose a suitable license for your project:',
+      name: 'projCreditInc',
+      message: "Now, do tell us about your partners in drag, (read: collaborators) and any third-party assets your want to dedicate your success to",
+      choices: ["Huh? No thanks!", "Oh yes please!"],
+   }, 
+   {
+      type: 'editor',
+      message: '.... Great! And they are ... :',
+      name: 'projCredits',
+      when: (answers) => (answers.projCreditInc === "Oh yes please!"),
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Honey! Surely you can muster up 2 lines of text!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'list',
+      message: 'Now carefully choose a suitable license for your project:',
       name: 'projLicense',
       choices: licenseArr,
    },
-   // {
-   //    type: 'editor',
-   //    message: 'List all the fabulous features of your project: ',
-   //    name: 'projFeatures',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // }, 
-   // {
-   //    type: 'editor',
-   //    message: '... and any other future developments for your project: ',
-   //    name: 'projFuture',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // }, 
-   // {
-   //    type: 'editor',
-   //    message: 'If you would like other developers to contribute to it, you can include guidelines for how to do so: ',
-   //    name: 'projContribute',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // }, 
-   // {
-   //    type: 'editor',
-   //    message: 'Device testings for your application and provide examples on how to run them:',
-   //    name: 'projTests',
-   //    validate(text) {
-   //       if (text.split('\n').length < 2) {
-   //          return 'Must be at least 2 lines.';
-   //       }
-   //       return true;
-   //    },
-   //    waitUserInput: true,
-   // },    
+   {
+      type: 'editor',
+      message: 'Honey! Here is the exciting part where you can list all the fabulous features of your project: ',
+      name: 'projFeatures',
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Oh honey! You got to have more than 2 features!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'list',
+      name: 'projFutureInc',
+      message: "Now, do tell us about any other future developments for your project:",
+      choices: ["No It's a dead horse!", "Oh yes please!"],
+   }, 
+   {
+      type: 'editor',
+      message: '... fabulous! and these future developments are ...  ',
+      name: 'projFuture',
+      when: (answers) => ((answers.projFutureInc === "Oh yes please!")),
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Surely there is at least two other features you can further add to your project!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'list',
+      name: 'projContributeInc',
+      message: "If you would like other developers to contribute to it, you can include guidelines for how to do so: ",
+      choices: ["No! It is all mine!!!!", "Oh yes please!"],
+   }, 
+   {
+      type: 'editor',
+      message: '.. and how can they contribute ...',
+      name: 'projContribute',
+      when: (answers) => ((answers.projContributeInc === "Oh yes please!")),
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Must be at least 2 lines.';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'list',
+      name: 'projTestsInc',
+      message: "... and lastly, have you devised any testing for your project and if so, can you provide examples on how to run them:",
+      choices: ["No! Just leg it!", "Oh yes please!"],
+   }, 
+   {
+      type: 'editor',
+      message: '... great! and these tests are?',
+      name: 'projTests',
+      when: (answers) => ((answers.projTestsInc === "Oh yes please!")),
+      validate(text) {
+         if (text.split('\n').length < 2) {
+            return 'Must be at least 2 lines.';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   },    
 ];
 
 
-// console.log("questionsArr:", questionsArr);
 
 // asynchronously call inquirer.js and write to the file and increment file number for the next run.
 
@@ -210,8 +277,10 @@ const init = async () => {
 
       // set next file version number.
       let fileNumNext = (parseInt(fileNum)+1).toString();
-      await writeFileAsync(`./utils/fileNumCounter.log`, fileNumNext);
-      console.log(`Successfully added the next file number`, fileNumNext, `to log file.`);
+      await writeFileAsync(`./readmes/fileNumCounter.log`, fileNumNext);
+      console.log(`Your next readme.md file version is `, fileNumNext, ` and it will be waiting for you in /readmes/fileNumCounter.log`);
+
+      console.log(goodByeMsg);
 
    } catch (err) {
       console.log(err);
