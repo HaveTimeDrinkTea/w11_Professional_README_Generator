@@ -23,7 +23,7 @@ I have modified the provided starter code to create this command line applicatio
   * to be used as prompts and 
   * to identify the formatting and user input validation needed 
 * Prepare the list of possible licenses and the accompanying images in the .md styling. 
-* C
+* 
 
 
 
@@ -42,7 +42,7 @@ I WANT to a README generator
 SO THAT I can quickly create a professional README for a new project.
 
 
-[Video Demonstration: https:///](https://)
+[Video Demonstration: https://](https://)
 
 
 
@@ -90,16 +90,18 @@ SO THAT I can quickly create a professional README for a new project.
 ## Usage 
 
 Screen dump of the deployed webpage:
-[Video Demonstration: https:///](https://)
+[Video Demonstration: https://](https://)
 
 
 Screen dump of the command line application:
+[SCreen Dump: https://](https://)
 
 
 ## Credits
 
 * input validation:
-  ** Auto Complete Plugin  
+  * Auto Complete Plugin  
+  * 
 
 * Quitting an inquirer.js session [https://lightrun.com/answers/sboudrias-inquirer-js-how-do-i-stop-inquirer--close-its-readline](https://lightrun.com/answers/sboudrias-inquirer-js-how-do-i-stop-inquirer--close-its-readline)
 
@@ -150,8 +152,8 @@ MIT License
 
 ## Contribution
 * Please raise any issues relating to this application 
-  ** via github [https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator](https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator)
-  ** via email to havetimedrinktea@gmail.com
+  * via github [https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator](https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator)
+  * via email to havetimedrinktea@gmail.com
 
 
 
