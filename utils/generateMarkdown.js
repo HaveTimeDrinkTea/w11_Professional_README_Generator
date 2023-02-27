@@ -26,8 +26,6 @@ const lineBreak3 = `\n \n \n`;
 const desc = `## Description` + lineBreak2
 
 
-// console.log(`Provide a short description explaining the what, why, and how of your project.`);
-
 
 const toc = `## Table of Contents` + lineBreak2
 + `- [Installation](#installation)` + lineBreak
@@ -36,28 +34,57 @@ const toc = `## Table of Contents` + lineBreak2
 + `- [License](#license)` + lineBreak3 
 +  `## Installation` + lineBreak2
 
-// console.log("What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.");
+let projScreenDump2_3;
 
+function getMoreScreenDumps(NumScreenDump, url2, url3) {
+  
+  if (NumScreenDump === "2") {
 
+    projScreenDump2_3 = 
+      `![Project Screen Dump 2](` + url2 + `)` + lineBreak3;
+  
+  } else if (NumScreenDump === "3") {
+  
+    projScreenDump2_3 = 
+      `![Project Screen Dump 2](` + url2 + `)` + lineBreak2
+    + `![Project Screen Dump 3](` + url3 + `)` + lineBreak3;
+  
+  } else {
+    // projScreenDumpNum === "None"
+    projScreenDump2_3 = lineBreak;
+} }
 
 
 export default function generateMarkdown(userResponses) {
   const licenseImg = userResponses.projLicense;
 
+  projScreenDump2_3 = getMoreScreenDumps(userResponses.projScreenDumpNum, userResponses.projScreenDump2, userResponses.projScreenDump3);
+
+
+
+
+
+
+
+
   const readMeText = 
   `# ` + userResponses.projName + lineBreak2
     // + desc + userResponses.projDesc + lineBreak3
+    // + `[Deployment link:](` + projDeployURL + `)` + lineBreak3
     // + toc
     // + userResponses.projInstall + lineBreak3
     // + `## Usage` + lineBreak2 
     // + userResponses.projUsage + lineBreak2
-    // + `![Project Screen Dump](` + userResponses.projScreenDump + `)` + lineBreak3
-    // + `## Credits` + lineBreak2 
+    + `![Project Screen Dump](` + userResponses.projScreenDump + `)` + lineBreak2
+    + projScreenDump2_3
+    + `## Credits` + lineBreak2 
     // + userResponses.projCredits + lineBreak3
     + `## License` + lineBreak2 
     + licenseTypesObj[licenseImg] + lineBreak3
     // + `## Features` + lineBreak2 
-    // + userResponses.projFeatures + lineBreak3
+    // + userResponses.projFeatures + lineBreak2
+    // + `### Future Developments` + lineBreak2 
+    // + userResponses.projFuture + lineBreak3
     // + `## How to Contribute` + lineBreak2 
     // + userResponses.projContribute + lineBreak3
     // + `## Tests` + lineBreak2 
@@ -65,4 +92,3 @@ export default function generateMarkdown(userResponses) {
   ;
   return readMeText;
 }
-
