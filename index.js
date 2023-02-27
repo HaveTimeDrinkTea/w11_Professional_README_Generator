@@ -48,7 +48,6 @@ import { licenseArr } from './utils/license.js';
 const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
 
 let fileName = `README` + fileNum + `.md`;
-console.log("fileName:",fileName);
 
 
 //--========================================================

@@ -71,7 +71,7 @@ function getAuthorDetails(userGithub, userEmail) {
   authorDetails = 
   `If you have any issues regarding this application, please:`
   + `  * visit my GitHub profile at [` + userGithub + `](https://github.com/` + userGithub + `)`
-  + `  * or email me at [`+ userEmail +`](`+ userEmail + `)`;
+  + `  * or email me at <`+ userEmail +`>`;
   return authorDetails;
 }
 
