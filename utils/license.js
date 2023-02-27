@@ -24,7 +24,7 @@ const licenseTypesObj =
       //-- GNU GPL v2
       "GPL v2": `[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`, 
       //-- The Hippocratic License 2.1
-      "Hippocratic 2.1": `[![License: Hippocratic 2.1](https://img.shields.io/badge/License-Hippocratic_2.1-lightgrey.svg)](https://firstdonoharm.dev)`
+      "Hippocratic 2.1": `[![License: Hippocratic 2.1](https://img.shields.io/badge/License-Hippocratic_2.1-lightgrey.svg)](https://firstdonoharm.dev)`,
       //-- IBM Public License Version 1.0
       "IBM Public License Version 1.0": `[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)`, 
       //-- ISC License (ISC)
