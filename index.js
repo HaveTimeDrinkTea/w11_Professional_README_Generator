@@ -2,19 +2,24 @@
 //-- installed inquirer and added it to list of dependencies by running `npm i inquirer --save`.
 //--PW Inquirer v9 and higher are native esm modules, this mean you cannot use the commonjs syntax require('inquirer') anymore. 
 
+//--========================================================
+//-- 1. Get all the relevant packages
+//--========================================================
 
-
-// get fs
+//-- 1.1 Get fs
 import * as fs from 'fs';
 
-// get path
+
+//-- 1.2 Get path
 import * as path from 'path';
 
-// get inquirer
+
+//-- 1.3 get inquirer
 
 import inquirer from 'inquirer';
 
-// get util 
+
+//-- 1.4 Get util 
 
 import * as util from 'util';
 
@@ -22,20 +27,26 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 const readFileAsync = util.promisify(fs.readFile);
 
-// get generateMarkdown code and the license list
+
+//-- 1.5 Get generateMarkdown code and the license list
 
 import generateMarkdown from './utils/generateMarkdown.js';
 
 import { licenseArr } from './utils/license.js'; 
 
-// get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
+//-- 1.6 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
 const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
 
 let fileName = `README` + fileNum + `.md`;
 console.log("fileName:",fileName);
 
-// Set welcome messages
+
+//--========================================================
+//-- 2. Set standard messages for rendering
+//--========================================================
+
+//-- Set welcome and good bye messages
 
 let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
    + `                 👯‍♂️🕺🏻👯‍♀️ GOOD DAY GOOD DAY! 👯‍♀️🕺🏻👯‍♂️\n`
@@ -49,9 +60,14 @@ let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷�
    + `               Now, you can SHASHAY away! \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`   
 
-// set array of questions objects for the user to be used by inquirer
+
+
+//--========================================================
+//-- 3. Set Set Question for inquirer.js
+//--========================================================   
 
 const questionsArr = [
+   //-- Project name
    {
       type: 'input',
       message: 'Now, first things first: the name of your super duper project is?',
@@ -64,6 +80,7 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //--Description of Project 
    {
       type: 'editor',
       message: 'And now tell me a bit about your project, what motivates you to do this, why are you doing it and how did you do it:',
@@ -75,6 +92,7 @@ const questionsArr = [
          return true;
       },
    },   
+   //-- Set Deployment link
    {
       type: 'input',
       message: ' and the URL of your deployed project (type full path including https://)?',
@@ -87,6 +105,7 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //-- Set Installation instructions
    {
       type: 'editor',
       message: 'That is fabulous! Now my dear, give me a step-by-step run through on getting the application environment running:',
@@ -99,6 +118,7 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //-- Set Project Usage
    {
       type: 'editor',
       message: 'And are there any instructions or examples for use. (Path of screenshot(s) to be provided in next prompt.)',
@@ -111,6 +131,7 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //-- Set First Screen Dump path/name
    {
       type: 'input',
       message: 'So my dear, what is the path and file name of the screen dump of your project?',
@@ -123,6 +144,7 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+      //-- Set second and/or third Screen Dump path/name
    {
       type: 'list',
       name: 'projScreenDumpNum',
@@ -155,10 +177,11 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //-- Set credits
    {
       type: 'list',
       name: 'projCreditInc',
-      message: "Now, do tell us about your partners in drag, (read: collaborators) and any third-party assets your want to dedicate your success to",
+      message: "Now, do tell us about your partners in drag (read: collaborators) and any third-party assets your want to dedicate your success to",
       choices: ["Huh? No thanks!", "Oh yes please!"],
    }, 
    {
@@ -174,12 +197,14 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //-- Set license
    {
       type: 'list',
       message: 'Now carefully choose a suitable license for your project:',
       name: 'projLicense',
       choices: licenseArr,
    },
+   //-- Set features
    {
       type: 'editor',
       message: 'Honey! Here is the exciting part where you can list all the fabulous features of your project: ',
@@ -191,7 +216,8 @@ const questionsArr = [
          return true;
       },
       waitUserInput: true,
-   }, 
+   },
+   //-- Set future directions/developments 
    {
       type: 'list',
       name: 'projFutureInc',
@@ -211,10 +237,11 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //-- Set how to contribute   
    {
       type: 'list',
       name: 'projContributeInc',
-      message: "If you would like other developers to contribute to it, you can include guidelines for how to do so: ",
+      message: "If you would like other developers to contribute to it: ",
       choices: ["No! It is all mine!!!!", "Oh yes please!"],
    }, 
    {
@@ -230,10 +257,11 @@ const questionsArr = [
       },
       waitUserInput: true,
    }, 
+   //-- Set testings      
    {
       type: 'list',
       name: 'projTestsInc',
-      message: "... and lastly, have you devised any testing for your project and if so, can you provide examples on how to run them:",
+      message: "... and lastly, have you devised any testing for your project:",
       choices: ["No! Just leg it!", "Oh yes please!"],
    }, 
    {
@@ -253,7 +281,12 @@ const questionsArr = [
 
 
 
-// asynchronously call inquirer.js and write to the file and increment file number for the next run.
+//--========================================================
+//-- 4. Call inquirer.js
+//--========================================================   
+
+//-- asynchronously call inquirer.js 
+//-- and write to the file and increment file number for the next run.
 
 const promptUser = () => {
    return inquirer.prompt(questionsArr)
@@ -264,21 +297,22 @@ const init = async () => {
    console.log(welcomeMsg);
    try {
 
-      // call inquirer.js
+      // Call inquirer.js
       const userResponses = await promptUser();
       
-      console.log("inside ini:", generateMarkdown);
-      console.log("userResponses",userResponses);
-      
-      // generate the markdown file
+      // Generate the markdown file
       const readMeFile = generateMarkdown(userResponses);
-      await writeFileAsync(`./readmes/`+ fileName, readMeFile);
-      console.log("Your fabulous " + fileName + " is done! Go to /readmes directory to collect it!");
 
-      // set next file version number.
+      await writeFileAsync(`./readmes/`+ fileName, readMeFile);
+
+      console.log(`\n\n Your fabulous ` + fileName + ` is done! Go to ./readmes directory to collect it!`);
+
+      // Set next file version number.
       let fileNumNext = (parseInt(fileNum)+1).toString();
+
       await writeFileAsync(`./readmes/fileNumCounter.log`, fileNumNext);
-      console.log(`Your next readme.md file version is `, fileNumNext, ` and it will be waiting for you in /readmes/fileNumCounter.log`);
+
+      console.log(`\n\n Your next readme.md file version will be `, parseInt(fileNumNext), ` and it will be waiting for you in ./readmes/fileNumCounter.log`);
 
       console.log(goodByeMsg);
 
@@ -287,7 +321,12 @@ const init = async () => {
    }
 };
 
-// run the script on load node
+
+
+//--========================================================
+//-- 4. Run inquirer.js
+//--========================================================   
+
 init();
 
 
