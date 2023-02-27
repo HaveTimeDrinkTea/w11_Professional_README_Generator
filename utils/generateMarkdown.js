@@ -1,23 +1,12 @@
-// function to generate markdown for README
-// function generateMarkdown(data) {
-//   return `# ${data.title}
-
-// `;
-// }
-// module.exports = generateMarkdown;
-
-// export default function generateMarkdown(userResponses) {
-//   const readMeText = 
-//   `# blah blah
-//   and second lien
-//   and third line
-//   bye! My name is ${userResponses.userName}
-//   and I am a ${userResponses.userGender}
-//   `;
-//   return readMeText;
-// }
-
+//--========================================================
+//-- 1. Get list of license 
+//--========================================================   
 import { licenseTypesObj } from '../utils/license.js'; 
+
+
+//--========================================================
+//-- 2. Prepare the standard rendering components of README.MD 
+//--========================================================   
 
 const lineBreak = `\n`;
 const lineBreak2 = `\n \n`;
@@ -31,7 +20,7 @@ const toc = `## Table of Contents` + lineBreak2
 + `- [License](#license)` 
 + lineBreak3 ;
 
-
+//-- Create markdown for 2nd and/or third screen dump path/file name
 let projScreenDump2_3;
 
 function getMoreScreenDumps(NumScreenDump, url2, url3) {
@@ -48,12 +37,15 @@ function getMoreScreenDumps(NumScreenDump, url2, url3) {
     + `![Project Screen Dump 3](` + url3 + `)` + lineBreak3;
   
   } else {
-    // if rojScreenDumpNum === "None"
+    // if projScreenDumpNum === "None"
       projScreenDump2_3 = lineBreak;
   } ;
   return projScreenDump2_3
 }
 
+//-- Create markdown for any question prompt where 
+//-- user indicated that no details are required ==> render N.A.
+//-- user wants some details ==> render details.
 
 let projDetailsRender;
 
@@ -67,7 +59,9 @@ function getDetails (projInc, projDetails) {
 }
 
 
-
+//--========================================================
+//-- 3. Prepare generateMarkdown() and export it
+//--========================================================   
 
 export default function generateMarkdown(userResponses) {
   const licenseImg = userResponses.projLicense;
@@ -100,3 +94,4 @@ export default function generateMarkdown(userResponses) {
   ;
   return readMeText;
 }
+
