@@ -100,6 +100,7 @@ Screen dump of the command line application:
 ## Credits
 
 * list of licenses and their corresponding logos by [lukas-h/license-badges.md](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba)
+* email validator [https://www.npmjs.com/package/email-validator](https://www.npmjs.com/package/email-validator)
 
 
 
@@ -119,7 +120,7 @@ MIT License
    node index.js
 ```   
 
-* The user will see a welcome message and the version of the last README.md
+* The user will see a welcome message
 * The user will be prompted to answer questions either by a single line input, or enter the default vi editor to input longer paragraphs or to chose from a list of options.
 * In the case of screen dump(s), the user is asked to input the first screen dump and the user can select to include one or 2 more screen dumps (total of 3) or no more screen dumps.
   * When the user chooses no more screen dump, then the user will be see the prompt for the second and third screen dump details.
@@ -129,13 +130,15 @@ MIT License
     * When the user chooses no more screen dump, then the user will be see the prompt for the second and third screen dump.
     * email address
     * for Credits to collaborators, project future directions, future contributions by other developers and testing sections, if the user chooses not to add any sections, the text "N.A." is added to the respective sections.
+* For the Question section, the user is prompted to input their Github user name and their email address.
+  * email inputwill be validated.
 * When the full list of prompts have been completed, the user is shown 
   * a congratulatory success message,
   * the name of the README<version number>.md
   * the directory where the README is stored.
 
   
-### Extra Features For Future Development
+### Future Development
 * Allow user to reset the file versioning counter
 * Allow user to clear out any or specific previously generated readme files 
 * Allow user to create their own output directory for the generated README.md files
@@ -147,9 +150,9 @@ MIT License
 
 
 ## Contribution
-* Please raise any issues relating to this application 
-  * via github [https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator](https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator)
-  * via email to havetimedrinktea@gmail.com
+* If you would like to contribut to this application, please contact me via
+  * GitHub [https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator](https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator)
+  * email to havetimedrinktea@gmail.com
 
 
 
