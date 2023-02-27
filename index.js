@@ -1,5 +1,7 @@
 //-- initialized  repository with a `package.json` file by running `npm init -y`.
-//-- installed inquirer and added it to list of dependencies by running `npm i inquirer --save`.
+//-- installed inquirer and email validator and added it to list of dependencies by running 
+//--> npm i inquirer --save
+//--> npm install email-validator --save
 //--PW Inquirer v9 and higher are native esm modules, this mean you cannot use the commonjs syntax require('inquirer') anymore. 
 
 //--========================================================
@@ -28,13 +30,19 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
 
 
-//-- 1.5 Get generateMarkdown code and the license list
+//-- 1.5 Get email validator  
+
+import * as emailValidator from "email-validator";
+
+
+//-- 1.6 Get generateMarkdown code and the license list
 
 import generateMarkdown from './utils/generateMarkdown.js';
 
 import { licenseArr } from './utils/license.js'; 
 
-//-- 1.6 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
+
+//-- 1.7 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
 const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
 
@@ -277,7 +285,7 @@ const questionsArr = [
       },
       waitUserInput: true,
    },    
-   //-- Questions Section:- Github User Name
+   -- Questions Section:- Github User Name
    {
       type: 'input',
       message: 'Now honey! The penultimate question. What is your GitHub user name?',
@@ -295,13 +303,13 @@ const questionsArr = [
       message: '... And finally! Your email address is ...',
       name: 'projEmail',
       validate(text) {
-         if (text === "" ) {
-            return 'Oh dear! Blank is not a good email name for your ! Please tell me your real email address!';
-         }
+         if (!(emailValidator.validate(text))) {
+            return 'Dear dear, let try again with that email address ...';
+         };
          return true;
       },
       waitUserInput: true,
-   }, 
+      },
 ];
 
 

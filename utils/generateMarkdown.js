@@ -85,7 +85,7 @@ export default function generateMarkdown(userResponses) {
 
 
   const readMeText = 
-  `# ` + userResponses.projName + lineBreak2
+    `# ` + userResponses.projName + lineBreak2
     + `## Description` + lineBreak2
     + userResponses.projDesc + lineBreak2
     + `[Deployment link:](` + userResponses.projDeployURL + `)` + lineBreak3
