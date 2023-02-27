@@ -32,12 +32,13 @@ const toc = `## Table of Contents` + lineBreak2
 + lineBreak3 ;
 
 
+let projScreenDump2_3;
 
 function getMoreScreenDumps(NumScreenDump, url2, url3) {
   
   if (NumScreenDump === "One more, please!") {
-
-    let projScreenDump2_3 = 
+    
+      projScreenDump2_3 = 
       `![Project Screen Dump 2](` + url2 + `)` + lineBreak3;
   
   } else if (NumScreenDump === "Two more, please!") {
@@ -48,17 +49,19 @@ function getMoreScreenDumps(NumScreenDump, url2, url3) {
   
   } else {
     // if rojScreenDumpNum === "None"
-    let projScreenDump2_3 = lineBreak;
+      projScreenDump2_3 = lineBreak;
   } ;
   return projScreenDump2_3
 }
 
 
+let projDetailsRender;
+
 function getDetails (projInc, projDetails) {
   if (projInc === "Oh yes please!") {
-    let projDetailsRender = projDetails;
+    projDetailsRender = projDetails;
   } else { 
-    let projDetailsRender = "N.A.";
+    projDetailsRender = "N.A.";
   }; 
   return projDetailsRender;
 }
@@ -73,29 +76,27 @@ export default function generateMarkdown(userResponses) {
   const readMeText = 
   `# ` + userResponses.projName + lineBreak2
     + `## Description` + lineBreak2
-    + desc + userResponses.projDesc + lineBreak2
-    + `[Deployment link:](` + projDeployURL + `)` + lineBreak3
+    + userResponses.projDesc + lineBreak2
+    + `[Deployment link:](` + userResponses.projDeployURL + `)` + lineBreak3
     + toc
     +  `## Installation` + lineBreak2
     + userResponses.projInstall + lineBreak3
-    // + `## Usage` + lineBreak2 
-    // + userResponses.projUsage + lineBreak2
-    // + `![Project Screen Dump](` + userResponses.projScreenDump + `)` + lineBreak2
-    // + getMoreScreenDumps(userResponses.projScreenDumpNum, userResponses.projScreenDump2, userResponses.projScreenDump3)
-    // + `## Credits` + lineBreak2 
-    // + getDetails (userResponses.projCreditInc, userResponses.projCredits) + lineBreak3
-    // + `## License` + lineBreak2 
-    // + licenseTypesObj[licenseImg] + lineBreak3
-    // + `## Features` + lineBreak2 
-    // + userResponses.projFeatures + lineBreak3
-    // + `## How to Contribute` + lineBreak2 
-    // + getDetails (userResponses.projContributeInc, userResponses.projContribute) + lineBreak3
-    // + `## Future Developments` + lineBreak2 
-    // + getDetails (userResponses.projFutureInc, userResponses.projFuture) + lineBreak3
-    // + `## How to Contribute` + lineBreak2 
-    // + getDetails (userResponses.projContributeInc, userResponses.projContribute) + lineBreak3
-    // + `## Tests` + lineBreak2 
-    // + userResponses.projTests + lineBreak3
+    + `## Usage` + lineBreak2 
+    + userResponses.projUsage + lineBreak2
+    + `![Project Screen Dump](` + userResponses.projScreenDump1 + `)` + lineBreak2
+    + getMoreScreenDumps(userResponses.projScreenDumpNum, userResponses.projScreenDump2, userResponses.projScreenDump3)
+    + `## Credits` + lineBreak2 
+    + getDetails (userResponses.projCreditInc, userResponses.projCredits) + lineBreak3
+    + `## License` + lineBreak2 
+    + licenseTypesObj[licenseImg] + lineBreak3
+    + `## Features` + lineBreak2 
+    + userResponses.projFeatures + lineBreak3
+    + `## Future Developments` + lineBreak2 
+    + getDetails (userResponses.projFutureInc, userResponses.projFuture) + lineBreak3
+    + `## How to Contribute` + lineBreak2 
+    + getDetails (userResponses.projContributeInc, userResponses.projContribute) + lineBreak3
+    + `## Tests` + lineBreak2 
+    + getDetails (userResponses.projTestsInc, userResponses.projTests) + lineBreak2
   ;
   return readMeText;
 }
