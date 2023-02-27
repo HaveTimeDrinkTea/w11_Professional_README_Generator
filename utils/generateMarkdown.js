@@ -17,7 +17,12 @@ const toc = `## Table of Contents` + lineBreak2
 + `- [Installation](#installation)` + lineBreak
 + `- [Usage](#usage)` + lineBreak
 + `- [Credits](#credits)` + lineBreak
-+ `- [License](#license)` 
++ `- [License](#license)` + lineBreak
++ `- [Features](#features)` + lineBreak 
++ `- [Future Developments](#developments)` + lineBreak 
++ `- [How To Contribute](#contribute)` + lineBreak 
++ `- [Tests](#tests)` + lineBreak 
++ `- [Questions](#questions)` + lineBreak 
 + lineBreak3 ;
 
 //-- Create markdown for 2nd and/or third screen dump path/file name
@@ -58,6 +63,18 @@ function getDetails (projInc, projDetails) {
   return projDetailsRender;
 }
 
+//-- Create markdown for author email and github profile
+
+let authorDetails;
+
+function getAuthorDetails(userGithub, userEmail) {
+  authorDetails = 
+  `If you have any issues regarding this application, please:`
+  + `  * visit my GitHub profile at [` + userGithub + `](https://github.com/` + userGithub + `)`
+  + `  * or email me at [`+ userEmail +`](`+ userEmail + `)`;
+  return authorDetails;
+}
+
 
 //--========================================================
 //-- 3. Prepare generateMarkdown() and export it
@@ -85,12 +102,14 @@ export default function generateMarkdown(userResponses) {
     + licenseTypesObj[licenseImg] + lineBreak3
     + `## Features` + lineBreak2 
     + userResponses.projFeatures + lineBreak3
-    + `## Future Developments` + lineBreak2 
+    + `## Developments` + lineBreak2 
     + getDetails (userResponses.projFutureInc, userResponses.projFuture) + lineBreak3
-    + `## How to Contribute` + lineBreak2 
+    + `## Contribute` + lineBreak2 
     + getDetails (userResponses.projContributeInc, userResponses.projContribute) + lineBreak3
     + `## Tests` + lineBreak2 
     + getDetails (userResponses.projTestsInc, userResponses.projTests) + lineBreak2
+    + `## Questions` + lineBreak2 
+    + getAuthorDetails(userResponses.projGitHub, userResponses.projEmail) + lineBreak3
   ;
   return readMeText;
 }

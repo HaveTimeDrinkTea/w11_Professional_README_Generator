@@ -70,7 +70,7 @@ const questionsArr = [
    //-- Project name
    {
       type: 'input',
-      message: 'Now, first things first: the name of your super duper project is?',
+      message: 'Now, first things first, the name of your super duper project is?',
       name: 'projName',
       validate(text) {
          if (text === "" ) {
@@ -261,7 +261,7 @@ const questionsArr = [
    {
       type: 'list',
       name: 'projTestsInc',
-      message: "... and lastly, have you devised any testing for your project:",
+      message: "... and have you devised any testing for your project:",
       choices: ["No! Just leg it!", "Oh yes please!"],
    }, 
    {
@@ -277,6 +277,31 @@ const questionsArr = [
       },
       waitUserInput: true,
    },    
+   //-- Questions Section:- Github User Name
+   {
+      type: 'input',
+      message: 'Now honey! The penultimate question. What is your GitHub user name?',
+      name: 'projGitHub',
+      validate(text) {
+         if (text === "" ) {
+            return 'Oh dear! Blankety blank is not a good GitHub name! Please tell me your real GitHub name!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'input',
+      message: '... And finally! Your email address is ...',
+      name: 'projEmail',
+      validate(text) {
+         if (text === "" ) {
+            return 'Oh dear! Blank is not a good email name for your ! Please tell me your real email address!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
 ];
 
 
