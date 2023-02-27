@@ -1,4 +1,23 @@
 {
+  "name": "w11_professional_readme_generator",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator/issues"
+  },
+  "homepage": "https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator#readme",
   "dependencies": {
     "email-validator": "^2.0.4",
     "inquirer": "^9.1.4"

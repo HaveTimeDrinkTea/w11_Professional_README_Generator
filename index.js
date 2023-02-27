@@ -1,4 +1,5 @@
-//-- initialized  repository with a `package.json` file by running `npm init -y`.
+//-- initialized  repository with a `package.json` file by running 
+//--> npm init -y
 //-- installed inquirer and email validator and added it to list of dependencies by running 
 //--> npm i inquirer --save
 //--> npm install email-validator --save
@@ -285,7 +286,7 @@ const questionsArr = [
       },
       waitUserInput: true,
    },    
-   -- Questions Section:- Github User Name
+   //-- Questions Section:- Github User Name
    {
       type: 'input',
       message: 'Now honey! The penultimate question. What is your GitHub user name?',
