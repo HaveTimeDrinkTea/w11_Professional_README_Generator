@@ -1,5 +1,7 @@
 //-- initialized  repository with a `package.json` file by running `npm init -y`.
-//-- installed inquirer and added it to list of dependencies by running `npm i inquirer --save`.
+//-- installed inquirer and email validator and added it to list of dependencies by running 
+//--> npm i inquirer --save
+//--> npm install email-validator --save
 //--PW Inquirer v9 and higher are native esm modules, this mean you cannot use the commonjs syntax require('inquirer') anymore. 
 
 //--========================================================
@@ -28,13 +30,19 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
 
 
-//-- 1.5 Get generateMarkdown code and the license list
+//-- 1.5 Get email validator  
+
+import * as emailValidator from "email-validator";
+
+
+//-- 1.6 Get generateMarkdown code and the license list
 
 import generateMarkdown from './utils/generateMarkdown.js';
 
 import { licenseArr } from './utils/license.js'; 
 
-//-- 1.6 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
+
+//-- 1.7 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
 const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
 
@@ -70,7 +78,7 @@ const questionsArr = [
    //-- Project name
    {
       type: 'input',
-      message: 'Now, first things first: the name of your super duper project is?',
+      message: 'Now, first things first, the name of your super duper project is?',
       name: 'projName',
       validate(text) {
          if (text === "" ) {
@@ -261,7 +269,7 @@ const questionsArr = [
    {
       type: 'list',
       name: 'projTestsInc',
-      message: "... and lastly, have you devised any testing for your project:",
+      message: "... and have you devised any testing for your project:",
       choices: ["No! Just leg it!", "Oh yes please!"],
    }, 
    {
@@ -277,6 +285,31 @@ const questionsArr = [
       },
       waitUserInput: true,
    },    
+   -- Questions Section:- Github User Name
+   {
+      type: 'input',
+      message: 'Now honey! The penultimate question. What is your GitHub user name?',
+      name: 'projGitHub',
+      validate(text) {
+         if (text === "" ) {
+            return 'Oh dear! Blankety blank is not a good GitHub name! Please tell me your real GitHub name!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'input',
+      message: '... And finally! Your email address is ...',
+      name: 'projEmail',
+      validate(text) {
+         if (!(emailValidator.validate(text))) {
+            return 'Dear dear, let try again with that email address ...';
+         };
+         return true;
+      },
+      waitUserInput: true,
+      },
 ];
 
 
