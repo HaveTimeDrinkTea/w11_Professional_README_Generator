@@ -152,7 +152,7 @@ MIT License
 ## Contribution
 * If you would like to contribut to this application, please contact me via
   * GitHub [https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator](https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator)
-  * email to havetimedrinktea@gmail.com
+  * email to <havetimedrinktea@gmail.com>
 
 
 
