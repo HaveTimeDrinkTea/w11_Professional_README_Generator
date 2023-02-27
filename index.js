@@ -30,7 +30,7 @@ import { licenseArr } from './utils/license.js';
 
 // get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
-const fileNum = await readFileAsync('./utils/fileNumCounter.log', 'utf8');
+const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
 
 let fileName = `README` + fileNum + `.md`;
 console.log("fileName:",fileName);
@@ -38,10 +38,15 @@ console.log("fileName:",fileName);
 // Set welcome messages
 
 let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
-   + `                 GOOD DAY GOOD DAY! \n`
+   + `                 👯‍♂️🕺🏻👯‍♀️ GOOD DAY GOOD DAY! 👯‍♀️🕺🏻👯‍♂️\n`
    + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README.md! \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
 
+let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
+   + `                🏅  ConDRAgtulations! 🏅 \n`
+   + `  You have successfully created a very Dashing` + fileName + `! \n`
+   + `               Now, you can shashay away! \n \n`
+   + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`   
 
 // set array of questions objects for the user to be used by inquirer
 
@@ -210,8 +215,10 @@ const init = async () => {
 
       // set next file version number.
       let fileNumNext = (parseInt(fileNum)+1).toString();
-      await writeFileAsync(`./utils/fileNumCounter.log`, fileNumNext);
-      console.log(`Successfully added the next file number`, fileNumNext, `to log file.`);
+      await writeFileAsync(`./readmes/fileNumCounter.log`, fileNumNext);
+      console.log(`Your next readme.md file version is `, fileNumNext, ` and it will be waiting for you in /readmes/fileNumCounter.log`);
+
+      console.log(goodByeMsg);
 
    } catch (err) {
       console.log(err);
