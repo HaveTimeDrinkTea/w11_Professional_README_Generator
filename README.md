@@ -99,11 +99,7 @@ Screen dump of the command line application:
 
 ## Credits
 
-* input validation:
-  * Auto Complete Plugin  
-  * 
-
-* Quitting an inquirer.js session [https://lightrun.com/answers/sboudrias-inquirer-js-how-do-i-stop-inquirer--close-its-readline](https://lightrun.com/answers/sboudrias-inquirer-js-how-do-i-stop-inquirer--close-its-readline)
+* list of licenses and their corresponding logos by [lukas-h/license-badges.md](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba)
 
 
 
