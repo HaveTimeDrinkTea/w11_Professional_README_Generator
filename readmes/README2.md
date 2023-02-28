@@ -79,6 +79,8 @@ N.A.
  
 ## Questions
  
-If you have any issues regarding this application, please:  * visit my GitHub profile at [havetimedrinktea](https://github.com/havetimedrinktea)  * or email me at <havetimedrinktea@gmail.com>
+If you have any issues regarding this application, please:  
+* visit my GitHub profile at [havetimedrinktea](https://github.com/havetimedrinktea)  
+* or email me at <havetimedrinktea@gmail.com>
  
  
