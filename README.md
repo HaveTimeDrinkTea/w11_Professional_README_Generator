@@ -94,7 +94,7 @@ Screen dump of the deployed webpage:
 
 
 Screen dump of the command line application:
-[SCreen Dump: https://](https://)
+![Screen Dump: https://](https://)
 
 
 ## Credits
