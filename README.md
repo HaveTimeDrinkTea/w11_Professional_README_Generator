@@ -50,6 +50,9 @@ SO THAT I can quickly create a professional README for a new project.
 [Video Demo Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
 
 
+https://user-images.githubusercontent.com/119045159/221850720-6731e924-cc71-4e10-9394-21b7b1cff7cf.mp4
+
+
 
 ## Acceptance Criteria
 
@@ -96,7 +99,7 @@ SO THAT I can quickly create a professional README for a new project.
 
 ### Video Demo:
 
-![Video Demo Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
+[Video Demo Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
 
 [![Alternate Text]({images/readme_generator.png})]({https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing} "Link Title")
 
