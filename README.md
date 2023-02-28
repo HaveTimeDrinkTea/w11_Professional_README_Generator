@@ -113,9 +113,11 @@ https://user-images.githubusercontent.com/119045159/221850720-6731e924-cc71-4e10
 
 
 
-### Screen dump of the command line application:
+### Screen dumps of the command line application:
 
-![Screen Dump](images/readme_generator.png)
+![Screen Dump: Invoking the App](images/readme_generator2.png)
+
+![Screen Dump: End of the App](images/readme_generator.png)
 
 
 
