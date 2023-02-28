@@ -47,10 +47,8 @@ I WANT to a README generator
 SO THAT I can quickly create a professional README for a new project.
 
 
-![Video Demo Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
+[Video Demo Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
 
-<video src="https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing" controls="controls" style="max-width: 730px;">
-</video>
 
 
 ## Acceptance Criteria
