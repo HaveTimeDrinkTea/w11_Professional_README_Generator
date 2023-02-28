@@ -21,11 +21,19 @@ I have modified the provided starter code to create this command line applicatio
 
 
 ### Methodology: Pseudo Code
-* Prepare a template for a high quality and professional README.md 
+* Prepare a template of a high quality and professional README.md 
   * to be used as prompts and 
-  * to identify the formatting and user input validation needed 
-* Prepare the list of possible licenses and the accompanying images in the .md styling. 
-* 
+  * to identify the formatting and user input validations needed
+    * email address
+    * empty text input for required README.md sections
+    * replace empty text input with "N.A." for optional README.md sections
+* Prepare the list of possible licenses and the accompanying images in .md stylings. 
+* Prepare the questions array for feeding into the inquirer prompts
+* Prepare a function to generate the markdown text string
+  * may need constants to hold standard text strings that are not dynamically generated e.g. Table of Contents
+  * may need several functions to collect user inputs, format them for rendering before addint to the generate function. e.g. multiple screen dump links
+* create a separate dir to hold the dynamically generated README.md so that the README.md for this github repo will not be overwritten.
+  * add file version counter (using a log file) to hold next file version number.
 
 
 
@@ -145,10 +153,20 @@ MIT License
   * the directory where the README is stored.
 
   
-### Future Development
+  
+### Future Developments
 * Allow user to reset the file versioning counter
 * Allow user to clear out any or specific previously generated readme files 
 * Allow user to create their own output directory for the generated README.md files
+* More detail user input validation on:
+  * user email input
+  * user GitHub profile using the GitHub API [https://api.github.com/users/{username}](https://api.github.com)
+* Implement auto-complete for the license list selection
+* Checks for vulgarity
+* Automate file path selection for images.
+* Check for / Create the readmes dir and file version number log file on first install.
+
+
 
 
 
@@ -156,8 +174,9 @@ MIT License
 * This application has been tested on iTerm and Terminal app on MacOS Ventura 13.2.1 only.
 
 
+
 ## Contribution
-* If you would like to contribut to this application, please contact me via
+* If you would like to contribute to this application, please contact me via
   * GitHub [https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator](https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator)
   * email to <havetimedrinktea@gmail.com>
 
