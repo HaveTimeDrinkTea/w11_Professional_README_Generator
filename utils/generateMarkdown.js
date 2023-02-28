@@ -70,8 +70,8 @@ let authorDetails;
 function getAuthorDetails(userGithub, userEmail) {
   authorDetails = 
   `If you have any issues regarding this application, please:`
-  + `  * visit my GitHub profile at [` + userGithub + `](https://github.com/` + userGithub + `)`
-  + `  * or email me at <`+ userEmail +`>`;
+  + `\n  * visit my GitHub profile at [` + userGithub + `](https://github.com/` + userGithub + `)`
+  + `\n  * or email me at <`+ userEmail +`>`;
   return authorDetails;
 }
 
