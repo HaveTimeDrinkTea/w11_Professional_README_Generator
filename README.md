@@ -6,7 +6,7 @@ This project is part of the Frontend Dev Boot Camp course challenge for the elev
 
 It requires us to use the node.js inquirer package and ES6 to dynamically create a command-line README.md generator application that produces a high quality professional README.md. 
 
-The dynamically generated README.md will be stored in a separate directory (./readmes) and each time a user generates a README.md the file name will add a version number to the file. 
+The dynamically generated README.md will be stored in a separate directory (./readmes) and each time a user generates a README.md, the file name will have a version number added to it. 
 
 As this command line application won't be deployed, I have provided a link to a walkthrough video that will demonstrates its functionalities by simply invoking the following command:
 
