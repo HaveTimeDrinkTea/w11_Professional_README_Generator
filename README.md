@@ -16,6 +16,8 @@ As this command line application won't be deployed, I have provided a link to a 
 
 I have modified the provided starter code to create this command line application. 
 
+*NOTE: I have attempted to lighten the mood of the inquirer prompt questions using references from the "Ru Paul Drag Race" TV series.*  
+
 
 
 ### Methodology: Pseudo Code
