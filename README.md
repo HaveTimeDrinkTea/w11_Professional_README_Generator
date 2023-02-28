@@ -37,12 +37,6 @@ I have modified the provided starter code to create this command line applicatio
 
 
 
-### Further Improvements
-
-* Allow delete old versions
-* Allow reset of the versions number
-
-
 ## User Story
 
 AS A developer
@@ -160,7 +154,7 @@ MIT License
   
 ### Future Developments
 * Allow user to reset the file versioning counter
-* Allow user to clear out any or specific previously generated readme files 
+* Allow user to delete any or specific previously generated readme files 
 * Allow user to create their own output directory for the generated README.md files
 * More detail user input validation on:
   * user email input
@@ -169,9 +163,6 @@ MIT License
 * Checks for vulgarity
 * Automate file path selection for images.
 * Check for / Create the readmes dir and file version number log file on first install.
-
-
-
 
 
 
