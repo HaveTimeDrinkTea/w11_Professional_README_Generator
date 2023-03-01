@@ -42,7 +42,7 @@ I have modified the provided starter code to create this command line applicatio
 
 AS A developer
 
-I WANT to a README generator
+I WANT a README generator
 
 SO THAT I can quickly create a professional README for a new project.
 
