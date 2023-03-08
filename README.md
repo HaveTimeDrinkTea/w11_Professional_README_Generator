@@ -33,7 +33,7 @@ I have modified the provided starter code to create this command line applicatio
   * may need constants to hold standard text strings that are not dynamically generated e.g. Table of Contents
   * may need several functions to collect user inputs, format them for rendering before adding to the generate function. e.g. multiple screen dump links
 * create a separate dir to hold the dynamically generated README.md so that the README.md for this github repo will not be overwritten.
-  * add file version counter (using a log file) to hold next file version number.
+  * add file version counter (using a txt file) to hold next file version number.
 
 
 
@@ -172,9 +172,9 @@ MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg
   * the name of the README<version number>.md
   * the directory where the README is stored.
 
-* The version number of the dynamically generated README.md is stored in the `readmes/fileNumCounter.log` file. 
-  * This `readmes/fileNumCounter.log` file does not exist when the script is first run.  
-  * As such the index.js has been changed to create the file with the default string "1" when the app is first run.
+* The version number of the dynamically generated README.md is stored in the `readmes/fileNumCounter.txt` file. 
+  * This `readmes/fileNumCounter.txt` file does not exist when the script is first run.  
+  * As such the index.js has been changed to create the file `readmes/fileNumCounter.txt` with the default string "1" when the app is first run.
 
   
   
