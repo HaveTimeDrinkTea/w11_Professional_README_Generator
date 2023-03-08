@@ -43,11 +43,43 @@ import generateMarkdown from './utils/generateMarkdown.js';
 import { licenseArr } from './utils/license.js'; 
 
 
+
 //-- 1.7 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 
-const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
+// const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
+
+//-- 1.7.1 initialize the log file with fileNumCounter.log and the string "1" to start the README.md version number from 1
+
+
+
+
+let fileNum = await readFileAsync('./readmes/fileNumCounter.log', {encoding: 'utf8'})
+//   .then((text) => {
+//       // console.log('CONTENT:', text);
+//       fileNum = text;
+//   });
+  .catch((err) => {
+   // console.log('ERROR:', err);
+      // if ( err.code === 'ENOENT') {
+      if (err.code === 'ENOENT') {
+         writeFileAsync(`./readmes/fileNumCounter.log`, "1");
+      };
+      return "1";
+  });
+
+  console.log("fileNum Before:", fileNum);
+if (fileNum === undefined) {
+    fileNum = "1"
+};
+
+console.log("fileNum After:", fileNum);
 
 let fileName = `README` + fileNum + `.md`;
+
+console.log("current fileName:", fileName);
+
+
+
 
 
 //--========================================================

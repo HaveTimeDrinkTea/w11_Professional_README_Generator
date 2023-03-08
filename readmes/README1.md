@@ -1,13 +1,14 @@
-# asldfkjsd
+# asdfjnsadf,
  
 ## Description
  
-adlfkjsldafjs
-asldfkjhdlsf
+sdlfkjsld
+asdlfkjasf
+asdflkjsadklf
 
 
  
-[Deployment link:](http:..sfk hksfn )
+[Deployment link:](https://wljflds.ojsodfs)
  
  
 ## Table of Contents
@@ -26,20 +27,21 @@ asldfkjhdlsf
  
 ## Installation
  
-sdfkadhsfki
-asdfslkkflksd
-asdflsdlkif
+hjdfsrf
+asflkjs
+adsflj
+
 
  
  
 ## Usage
  
-dfladhskisdf
-asdflskfhksjd
-asdflasjfkl
+sdlfkjsdkl
+asdflsajf
+asdfljsadlf
 
  
-![Project Screen Dump](.images/pics)
+![Project Screen Dump](dksfhk/kdide.jpg)
  
 
 ## Credits
@@ -49,14 +51,20 @@ N.A.
  
 ## License
  
-[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)
+[![License: Open Font-1.1](https://img.shields.io/badge/License-OFL_1.1-lightgreen.svg)](https://opensource.org/licenses/OFL-1.1)
  
  
 ## Features
  
-sdlfkijiosdjf
-asdflsjdfl
-sadlmpdfoitre
+sdfhkjasasdfkhjasdfk
+]
+asdFKJHKdsf
+
+dFKHSDFK
+
+fkdhfkds
+asdFLKJSDF
+
 
  
  
@@ -76,6 +84,8 @@ N.A.
  
 ## Questions
  
-If you have any issues regarding this application, please:  * visit my GitHub profile at [asdkfvjghiosefrd](https://github.com/asdkfvjghiosefrd)  * or email me at [test@email.com](test@email.com)
+If you have any issues regarding this application, please:
+  * visit my GitHub profile at [kslfdaldf](https://github.com/kslfdaldf) or
+  * email me at <lksdjfd@slkf.com>
  
  
