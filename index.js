@@ -75,7 +75,7 @@ let fileName = `README` + fileNum + `.md`;
 
 let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
    + `                 👯‍♂️🕺🏻👯‍♀️ GOOD DAY GOOD DAY! 👯‍♀️🕺🏻👯‍♂️\n`
-   + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README` + (fileNum + 1) + `.md! \n \n`
+   + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README` + (parseInt(fileNum)+1).toString() + `.md! \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
 
    
