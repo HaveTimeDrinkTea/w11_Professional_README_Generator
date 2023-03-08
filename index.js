@@ -47,10 +47,10 @@ import { licenseArr } from './utils/license.js';
 //-- 1.7 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
 //-- initialize with fileNumCounter.log and the string "1" to start the README.md version number from 1 on the very first run of this script
 
-let fileNum = await readFileAsync('./readmes/fileNumCounter.log', {encoding: 'utf8'})
+let fileNum = await readFileAsync('./readmes/fileNumCounter.txt', {encoding: 'utf8'})
    .catch((err) => {
       if (err.code === 'ENOENT') {
-         writeFileAsync(`./readmes/fileNumCounter.log`, "1");
+         writeFileAsync(`./readmes/fileNumCounter.txt`, "1");
       };
       return "1";
    });
@@ -361,7 +361,7 @@ const init = async () => {
       // Set next file version number.
       let fileNumNext = (parseInt(fileNum)+1).toString();
 
-      await writeFileAsync(`./readmes/fileNumCounter.log`, fileNumNext);
+      await writeFileAsync(`./readmes/fileNumCounter.txt`, fileNumNext);
 
       console.log(`\n\n Your next readme.md file version will be `, parseInt(fileNumNext), ` and it will be waiting for you in ./readmes/fileNumCounter.log`);
 
