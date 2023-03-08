@@ -47,10 +47,14 @@ I WANT a README generator
 SO THAT I can quickly create a professional README for a new project.
 
 
-[Video Demo (1mins 48 secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1dJLs5R4xY9Ga3zVqkX_Fe4mPmc9362yz/view) or click on the embedded video below:
+[Video Demo (1m 57s) Screencastify recording on GDrive](https://drive.google.com/file/d/1dJLs5R4xY9Ga3zVqkX_Fe4mPmc9362yz/view) or click on the embedded video below:
 
 
-https://user-images.githubusercontent.com/119045159/221850720-6731e924-cc71-4e10-9394-21b7b1cff7cf.mp4
+
+
+https://user-images.githubusercontent.com/119045159/223722357-95a0950c-57fe-43f0-ae30-ca94ce9c4c22.mp4
+
+
 
 
 
@@ -99,7 +103,7 @@ https://user-images.githubusercontent.com/119045159/221850720-6731e924-cc71-4e10
 
 ### Video Demo:
 
-[Video Demo (1min 57secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
+[Video Demo (1min 57secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1dJLs5R4xY9Ga3zVqkX_Fe4mPmc9362yz/view)
 
 
 
