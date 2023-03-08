@@ -31,7 +31,7 @@ I have modified the provided starter code to create this command line applicatio
 * Prepare the questions array for feeding into the inquirer prompts
 * Prepare a function to generate the markdown text string
   * may need constants to hold standard text strings that are not dynamically generated e.g. Table of Contents
-  * may need several functions to collect user inputs, format them for rendering before addint to the generate function. e.g. multiple screen dump links
+  * may need several functions to collect user inputs, format them for rendering before adding to the generate function. e.g. multiple screen dump links
 * create a separate dir to hold the dynamically generated README.md so that the README.md for this github repo will not be overwritten.
   * add file version counter (using a log file) to hold next file version number.
 
@@ -47,7 +47,7 @@ I WANT a README generator
 SO THAT I can quickly create a professional README for a new project.
 
 
-[Video Demo (1mins 48 secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing) or click on the embeded video below:
+[Video Demo (1mins 48 secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1dJLs5R4xY9Ga3zVqkX_Fe4mPmc9362yz/view) or click on the embedded video below:
 
 
 https://user-images.githubusercontent.com/119045159/221850720-6731e924-cc71-4e10-9394-21b7b1cff7cf.mp4
@@ -147,34 +147,48 @@ MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg
 ```   
 
 * The user will see a welcome message
-* The user will be prompted to answer questions either by a single line input, or enter the default vi editor to input longer paragraphs or to chose from a list of options.
+
+* The user will be prompted to answer questions either by a single line input, or enter the default vi editor to input longer paragraphs or to choose from a list of options.
+
 * In the case of screen dump(s), the user is asked to input the first screen dump and the user can select to include one or 2 more screen dumps (total of 3) or no more screen dumps.
   * When the user chooses no more screen dump, then the user will be see the prompt for the second and third screen dump details.
   * When the user chooses one more screen dump, then the user will be see the prompt for the second screen dump details.  
-  * When the user chooses two more screen dump, then the user will be see the prompt for the second and third screen dump details.    
+  * When the user chooses two more screen dump, then the user will be see the prompt for the second and third screen dump details.   
+
 * The following user input validation will apply:
     * When the user chooses no more screen dump, then the user will be see the prompt for the second and third screen dump.
     * email address
     * for Credits to collaborators, project future directions, future contributions by other developers and testing sections, if the user chooses not to add any sections, the text "N.A." is added to the respective sections.
+
 * For the Question section, the user is prompted to input their Github user name and their email address.
-  * email inputwill be validated.
+  * email are to be of the right email format (name@domain.tld).
+
 * When the full list of prompts have been completed, the user is shown 
   * a congratulatory success message,
   * the name of the README<version number>.md
   * the directory where the README is stored.
 
+* The version number of the dynamically generated README.md is stored in the `readmes/fileNumCounter.log` file. This file does exist when this app is first run.  As such the index.js has been changed to create the file with the default string "1" when the app is first run.
+
   
   
 ### Future Developments
-* Allow user to reset the file versioning counter
-* Allow user to delete any or specific previously generated readme files 
-* Allow user to create their own output directory for the generated README.md files
+* Allow user to reset the file versioning counter.
+
+* Allow user to delete any or specific previously generated readme files.
+
+* Allow user to create their own output directory for the generated README.md files.
+
 * More detail user input validation on:
   * user email input
   * user GitHub profile using the GitHub API [https://api.github.com/users/{username}](https://api.github.com)
-* Implement auto-complete for the license list selection
-* Checks for vulgarity
+
+* Implement auto-complete for the license list selection.
+
+* Checks for vulgarity.
+
 * Automate file path selection for images.
+
 * Check for / Create the readmes dir and file version number log file on first install.
 
 

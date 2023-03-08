@@ -43,11 +43,28 @@ import generateMarkdown from './utils/generateMarkdown.js';
 import { licenseArr } from './utils/license.js'; 
 
 
+
 //-- 1.7 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
+//-- initialize with fileNumCounter.log and the string "1" to start the README.md version number from 1 on the very first run of this script
 
-const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
+let fileNum = await readFileAsync('./readmes/fileNumCounter.log', {encoding: 'utf8'})
+   .catch((err) => {
+      if (err.code === 'ENOENT') {
+         writeFileAsync(`./readmes/fileNumCounter.log`, "1");
+      };
+      return "1";
+   });
 
+
+//-- if fileNumCounter.log is not found then set fileNum to "1"
+if (fileNum === undefined) {
+   fileNum = "1"
+};
+
+//-- create the README file name for the current run
 let fileName = `README` + fileNum + `.md`;
+
+
 
 
 //--========================================================
@@ -58,7 +75,7 @@ let fileName = `README` + fileNum + `.md`;
 
 let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
    + `                 👯‍♂️🕺🏻👯‍♀️ GOOD DAY GOOD DAY! 👯‍♀️🕺🏻👯‍♂️\n`
-   + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README.md! \n \n`
+   + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README` + (parseInt(fileNum)).toString() + `.md! \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
 
    
