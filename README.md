@@ -157,11 +157,12 @@ MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg
     * email address
     * for Credits to collaborators, project future directions, future contributions by other developers and testing sections, if the user chooses not to add any sections, the text "N.A." is added to the respective sections.
 * For the Question section, the user is prompted to input their Github user name and their email address.
-  * email inputwill be validated.
+  * email input will be validated.
 * When the full list of prompts have been completed, the user is shown 
   * a congratulatory success message,
   * the name of the README<version number>.md
   * the directory where the README is stored.
+* The version number of the dynamically generated README.md is stored in the `readmes/fileNumCounter.log` file. This file does exist when this app is first run.  As such the index.js has been changed to create the file with the default string "1" when the app is first run.
 
   
   

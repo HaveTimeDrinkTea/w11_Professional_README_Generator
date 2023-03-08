@@ -45,39 +45,24 @@ import { licenseArr } from './utils/license.js';
 
 
 //-- 1.7 Get the README.md version number from ./utils/fileNumCounter.log and set the file name for current run
-
-// const fileNum = await readFileAsync('./readmes/fileNumCounter.log', 'utf8');
-
-//-- 1.7.1 initialize the log file with fileNumCounter.log and the string "1" to start the README.md version number from 1
-
-
-
+//-- initialize with fileNumCounter.log and the string "1" to start the README.md version number from 1 on the very first run of this script
 
 let fileNum = await readFileAsync('./readmes/fileNumCounter.log', {encoding: 'utf8'})
-//   .then((text) => {
-//       // console.log('CONTENT:', text);
-//       fileNum = text;
-//   });
-  .catch((err) => {
-   // console.log('ERROR:', err);
-      // if ( err.code === 'ENOENT') {
+   .catch((err) => {
       if (err.code === 'ENOENT') {
          writeFileAsync(`./readmes/fileNumCounter.log`, "1");
       };
       return "1";
-  });
+   });
 
-  console.log("fileNum Before:", fileNum);
+
+//-- if fileNumCounter.log is not found then set fileNum to "1"
 if (fileNum === undefined) {
-    fileNum = "1"
+   fileNum = "1"
 };
 
-console.log("fileNum After:", fileNum);
-
+//-- create the README file name for the current run
 let fileName = `README` + fileNum + `.md`;
-
-console.log("current fileName:", fileName);
-
 
 
 
@@ -90,7 +75,7 @@ console.log("current fileName:", fileName);
 
 let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
    + `                 👯‍♂️🕺🏻👯‍♀️ GOOD DAY GOOD DAY! 👯‍♀️🕺🏻👯‍♂️\n`
-   + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README.md! \n \n`
+   + `  Let's get WERKING and write an ELEGANZA EXTRAVAGANZA README` + fileNum + `.md! \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
 
    

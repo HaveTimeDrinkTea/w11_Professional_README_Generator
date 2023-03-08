@@ -1,15 +1,13 @@
-# lasdfjsdlfs
+# drag_race
  
 ## Description
  
-g
-adfljsdf
-adsflksadjflksj
-adlfjhsd
-adsfljasdflk
+desc
+
+Fat Free Fat. Kombucha, tempeh tofu Kaya toast, forage Pu-Erh tea health goth freegan. Distillery lo-fi umami, tempura, hainanese. Bitters seitan art party kitsch sriracha. Hammock ichigo-ichie. SHADE! dison bulb and occupy thunder cats dreamcatcher wabi sabi. Kale chips chillwave unicorn cold-pressed, la croix roof party.  But is it art?  WERK!
 
  
-[Deployment link:](fjalsdjfls.com)
+[Deployment link:](https://drag-race.com)
  
  
 ## Table of Contents
@@ -28,25 +26,24 @@ adsfljasdflk
  
 ## Installation
  
-sjdlfjsld
-adsfljasdflkas
-adfljasdlfsa
-aldsfjkuasld
+install
+
+Fat Free Fat. Kombucha, tempeh tofu Kaya toast, forage Pu-Erh tea health goth freegan. Distillery lo-fi umami, tempura, hainanese. Bitters seitan art party kitsch sriracha. Hammock ichigo-ichie. SHADE! dison bulb and occupy thunder cats dreamcatcher wabi sabi. Kale chips chillwave unicorn cold-pressed, la croix roof party.  But is it art?  WERK!
 
  
  
 ## Usage
  
-sdlkfask
-adsflakhjdfkl
-adlfkjasldif
-afdolksajdfl
+usage
 
+Fat Free Fat. Kombucha, tempeh tofu Kaya toast, forage Pu-Erh tea health goth freegan. Distillery lo-fi umami, tempura, hainanese. Bitters seitan art party kitsch sriracha. Hammock ichigo-ichie. SHADE! dison bulb and occupy thunder cats dreamcatcher wabi sabi. Kale chips chillwave unicorn cold-pressed, la croix roof party.  But is it art?  WERK!
 
  
-![Project Screen Dump](dklsf/dskljf.jsp)
+![Project Screen Dump](./images/pic)
  
-
+![Project Screen Dump 2](./images/pic2)
+ 
+ 
 ## Credits
  
 N.A.
@@ -54,14 +51,15 @@ N.A.
  
 ## License
  
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
  
  
 ## Features
  
-sldfkjsald
-asdfljasdlfk
-asdfljkasdlfkjsdl
+features
+
+Fat Free Fat. Kombucha, tempeh tofu Kaya toast, forage Pu-Erh tea health goth freegan. Distillery lo-fi umami, tempura, hainanese. Bitters seitan art party kitsch sriracha. Hammock ichigo-ichie. SHADE! dison bulb and occupy thunder cats dreamcatcher wabi sabi. Kale chips chillwave unicorn cold-pressed, la croix roof party.  But is it art?  WERK!
+
 
  
  
@@ -81,8 +79,8 @@ N.A.
  
 ## Questions
  
-If you have any issues regarding this application, please:
-  * visit my GitHub profile at [sklfhjds](https://github.com/sklfhjds) or
-  * email me at <sdhfksdh@akdh.com>
+If you have any issues regarding this application, please:  
+* visit my GitHub profile at [havetimedrinktea](https://github.com/havetimedrinktea)  
+* or email me at <havetimedrinktea@gmail.com>
  
  
