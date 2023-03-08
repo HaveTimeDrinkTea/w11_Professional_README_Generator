@@ -99,7 +99,7 @@ https://user-images.githubusercontent.com/119045159/221850720-6731e924-cc71-4e10
 
 ### Video Demo:
 
-[Video Demo (1mins 48 secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
+[Video Demo (1min 57secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1pnsSzucfp3dzeHRfz8HlK0grMkRM-PMN/view?usp=sharing)
 
 
 
@@ -115,9 +115,9 @@ https://user-images.githubusercontent.com/119045159/221850720-6731e924-cc71-4e10
 
 ### Screen dumps of the command line application:
 
-![Screen Dump: Invoking the App](images/readme_generator.png)
+![Screen Dump: Invoking the App](images/readme_generatorVer2_1.png)
 
-![Screen Dump: End of the App](images/readme_generator2.png)
+![Screen Dump: End of the App](images/readme_generatorVers2_2.png)
 
 
 
@@ -168,7 +168,9 @@ MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg
   * the name of the README<version number>.md
   * the directory where the README is stored.
 
-* The version number of the dynamically generated README.md is stored in the `readmes/fileNumCounter.log` file. This file does exist when this app is first run.  As such the index.js has been changed to create the file with the default string "1" when the app is first run.
+* The version number of the dynamically generated README.md is stored in the `readmes/fileNumCounter.log` file. 
+  * This `readmes/fileNumCounter.log` file does not exist when the script is first run.  
+  * As such the index.js has been changed to create the file with the default string "1" when the app is first run.
 
   
   
